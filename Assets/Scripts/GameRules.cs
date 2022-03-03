@@ -163,5 +163,11 @@ namespace Assets.Scripts
                 PlayerStats[playerId].LastTouchedObjective = value;
             }
         }
+
+        public static void Reset()
+        {
+            IsInPossessionMode = false;
+            CurrentPlayer = PlayerTags.Player_0;
+        }
     }
 }

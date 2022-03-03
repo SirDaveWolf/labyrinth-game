@@ -34,6 +34,7 @@ public class LabyrinthLevel : MonoBehaviour
     public List<GameObject> Borders;
 
     public GameObject PlayerBase;
+    public GameObject PlayerStartBase;
 
     public Material RedMaterial;
     public Material BlueMaterial;
@@ -46,6 +47,8 @@ public class LabyrinthLevel : MonoBehaviour
     public AudioClip RockPushSound;
 
     public AudioClip RockRotateSound;
+
+    public AudioClip CollectSound;
 
     public Camera GameCamera;
 
@@ -101,9 +104,11 @@ public class LabyrinthLevel : MonoBehaviour
 
         _isMoveAxisInUse = false;
 
-        _escapeMenuControls = EscapeMenu.GetComponent<EscapeMenuControls>();
-
+        GameRules.Reset();
         GameRules.AssignRandomCollectablesToAllPlayers();
+
+        _escapeMenuControls = EscapeMenu.GetComponent<EscapeMenuControls>();
+        _escapeMenuControls.GoBackToGame();
 
         GenerateMap();
 
@@ -136,6 +141,7 @@ public class LabyrinthLevel : MonoBehaviour
                     case ObjectiveCheckResult.Collectable:
 
                         // Change card on UI 
+                        PlayCollectSound();
 
                         break;
 
@@ -160,7 +166,7 @@ public class LabyrinthLevel : MonoBehaviour
             }
         }
 
-        if (EscapeMenu.activeSelf == false)
+        if (false == _escapeMenuControls.IsActive())
         {
             if (GameRules.IsInPossessionMode)
             {
@@ -229,7 +235,6 @@ public class LabyrinthLevel : MonoBehaviour
 
         _tiles[0, 0] = Instantiate(CornerTiles[(int)GameRules.GameTheme], new Vector3(0, 0, 0), Quaternion.identity);
         _tiles[0, 0].transform.Rotate(0, 90, 0);
-
         _players[(int)PlayerTags.Player_0] = Instantiate(PlayerBase, new Vector3(0, 1, 0), Quaternion.identity);
         _players[(int)PlayerTags.Player_0].GetComponentInChildren<MeshRenderer>().material = new Material(RedMaterial);
         _players[(int)PlayerTags.Player_0].GetComponent<MovementHandler>().SetEscapeMenu(_escapeMenuControls);
@@ -240,7 +245,7 @@ public class LabyrinthLevel : MonoBehaviour
 
         if (GameRules.PlayerCount >= 2)
         {
-            _players[(int)PlayerTags.Player_1] = Instantiate(PlayerBase, new Vector3(6 * TileWidth, 1, 0.25f), Quaternion.identity);
+            _players[(int)PlayerTags.Player_1] = Instantiate(PlayerBase, new Vector3(6 * TileWidth, 1, 0), Quaternion.identity);
             _players[(int)PlayerTags.Player_1].GetComponentInChildren<MeshRenderer>().material = new Material(GreenMaterial);
             _players[(int)PlayerTags.Player_1].GetComponent<MovementHandler>().SetEscapeMenu(_escapeMenuControls);
             _players[(int)PlayerTags.Player_1].GetComponent<MouseHandler>().SetEscapeMenu(_escapeMenuControls);
@@ -264,12 +269,28 @@ public class LabyrinthLevel : MonoBehaviour
 
         if (GameRules.PlayerCount >= 4)
         {
-            _players[(int)PlayerTags.Player_3] = Instantiate(PlayerBase, new Vector3(0.25f, 1, 6 * TileWidth), Quaternion.identity);
+            _players[(int)PlayerTags.Player_3] = Instantiate(PlayerBase, new Vector3(0, 1, 6 * TileWidth), Quaternion.identity);
             _players[(int)PlayerTags.Player_3].GetComponentInChildren<MeshRenderer>().material = new Material(YellowMaterial);
             _players[(int)PlayerTags.Player_3].GetComponent<MovementHandler>().SetEscapeMenu(_escapeMenuControls);
             _players[(int)PlayerTags.Player_3].GetComponent<MouseHandler>().SetEscapeMenu(_escapeMenuControls);
             _players[(int)PlayerTags.Player_3].tag = Globals.GetEnumAsName(PlayerTags.Player_3);
         }
+
+        var playerStart = Instantiate(PlayerStartBase, new Vector3(0, 0.01f, 0), Quaternion.identity);
+        playerStart.GetComponent<MeshRenderer>().material = new Material(RedMaterial);
+        playerStart.transform.parent = _tiles[0, 0].transform;
+
+        playerStart = Instantiate(PlayerStartBase, new Vector3(6 * TileWidth, 0.1f, 0), Quaternion.identity);
+        playerStart.GetComponent<MeshRenderer>().material = new Material(GreenMaterial);
+        playerStart.transform.parent = _tiles[6, 0].transform;
+
+        playerStart = Instantiate(PlayerStartBase, new Vector3(6 * TileWidth, 0.1f, 6 * TileWidth), Quaternion.identity);
+        playerStart.GetComponent<MeshRenderer>().material = new Material(BlueMaterial);
+        playerStart.transform.parent = _tiles[6, 6].transform;
+
+        playerStart = Instantiate(PlayerStartBase, new Vector3(0, 0.1f, 6 * TileWidth), Quaternion.identity);
+        playerStart.GetComponent<MeshRenderer>().material = new Material(YellowMaterial);
+        playerStart.transform.parent = _tiles[0, 6].transform;
 
         for (int x = 0; x < 7; x++)
         {
@@ -630,6 +651,7 @@ public class LabyrinthLevel : MonoBehaviour
     {
         if (player)
         {
+            UnHoverAllCollectables();
             IngameMenu.SetActive(false);
             _border.SetActive(true);
             GameRules.GoIntoPossessionMode();
@@ -672,6 +694,11 @@ public class LabyrinthLevel : MonoBehaviour
         AudioSource.PlayClipAtPoint(RockRotateSound, GameCamera.transform.position, AudioListener.volume);
     }
 
+    private void PlayCollectSound()
+    {
+        AudioSource.PlayClipAtPoint(CollectSound, GameCamera.transform.position, AudioListener.volume);
+    }
+
     private void CheckAndRepositionPlayerIfOutOfBounds(GameObject player)
     {
         if (player)
@@ -695,6 +722,14 @@ public class LabyrinthLevel : MonoBehaviour
             {
                 player.GetComponent<MovementHandler>().SetNewPosition(player.transform.position = new Vector3(GameplayStatics.RoundToNearest10(player.transform.position.x), player.transform.position.y, TileWidth * 6));
             }
+        }
+    }
+
+    private void UnHoverAllCollectables()
+    {
+        foreach(var collectable in Collectables)
+        {
+            collectable.GetComponent<FloatAndRotate>().UnHover();
         }
     }
 }

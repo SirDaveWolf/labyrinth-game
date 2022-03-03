@@ -62,4 +62,9 @@ public class FloatAndRotate : MonoBehaviour
             }
         }
     }
+
+    public void UnHover()
+    {
+        ishovered = false;
+    }
 }

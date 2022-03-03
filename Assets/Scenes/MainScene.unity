@@ -795,6 +795,7 @@ MonoBehaviour:
   - {fileID: 2463989212178835889, guid: 3d0c21da977ca434ba7c19da54bd0a24, type: 3}
   - {fileID: 2463989212178835889, guid: ef6d2b0269570e74d8e1e160459d2ff6, type: 3}
   PlayerBase: {fileID: 2138486073675341645, guid: bf75ae7c67dcfbb479882dce41e28235, type: 3}
+  PlayerStartBase: {fileID: 1920316731900199724, guid: 13ddcc73c0ccc844482813a4518fef81, type: 3}
   RedMaterial: {fileID: 2100000, guid: 167b835c48eed9641af5c5eebd29fe68, type: 2}
   BlueMaterial: {fileID: 2100000, guid: a0597caf37f127043a6c30314fe038a9, type: 2}
   GreenMaterial: {fileID: 2100000, guid: 24b5c825cdf245f40ac62f59ee2dc8e6, type: 2}
@@ -803,6 +804,7 @@ MonoBehaviour:
   RockMoveSoundB: {fileID: 8300000, guid: bd697d9047fc7d34690f527843c62828, type: 3}
   RockPushSound: {fileID: 8300000, guid: 85079f47d7f1e694e9a4c1fd962281a4, type: 3}
   RockRotateSound: {fileID: 8300000, guid: 680398a6658256d4da08491e624aa33e, type: 3}
+  CollectSound: {fileID: 8300000, guid: af3b23ed913f7524ca5cd2ddeb292e78, type: 3}
   GameCamera: {fileID: 963194227}
   EscapeMenu: {fileID: 1560003388}
   IngameMenu: {fileID: 581675441}
