@@ -360,7 +360,7 @@ public class LabyrinthLevel : MonoBehaviour
             {
                 var x = _random.Next(0, 7);
                 var y = _random.Next(0, 7);
-                var location = new Vector3(x * TileWidth, 0.5f, y * TileWidth);
+                var location = new Vector3(x * TileWidth, 0.6f, y * TileWidth);
 
                 if (takenPositions.Contains(location) == false)
                 {
