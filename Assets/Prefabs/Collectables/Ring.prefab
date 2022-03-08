@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1425000714928781231}
   - component: {fileID: 3756681382329385829}
   - component: {fileID: 7507513937053723312}
-  - component: {fileID: 4086636930357557227}
+  - component: {fileID: 8439809205040947634}
   m_Layer: 0
   m_Name: Ring
   m_TagString: Untagged
@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d2de4eb687f88044a8f1659b620d501, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!65 &4086636930357557227
+--- !u!65 &8439809205040947634
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -106,5 +106,5 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.018567476, y: 0.018567476, z: 0.011}
-  m_Center: {x: 0, y: 0, z: -0.0017983486}
+  m_Size: {x: 0.011140486, y: 0.011140486, z: 0.005}
+  m_Center: {x: 0, y: 0, z: -0.0010790093}

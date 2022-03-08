@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 975861402355176213}
   - component: {fileID: 3057385112019003359}
   - component: {fileID: 7412380328680840004}
-  - component: {fileID: 4410527881080614106}
+  - component: {fileID: 4547876531997530673}
   m_Layer: 0
   m_Name: Kelch
   m_TagString: Untagged
@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d2de4eb687f88044a8f1659b620d501, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!65 &4410527881080614106
+--- !u!65 &4547876531997530673
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -106,5 +106,5 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.027055122, y: 0.038314812, z: 0.027055126}
-  m_Center: {x: 4.656613e-10, y: 0.019157406, z: -0.0000000013969839}
+  m_Size: {x: 0.0067637805, y: 0.009578703, z: 0.0067637814}
+  m_Center: {x: 1.1641532e-10, y: 0.0047893515, z: -3.4924597e-10}

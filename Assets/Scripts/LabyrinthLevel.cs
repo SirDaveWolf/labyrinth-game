@@ -347,10 +347,10 @@ public class LabyrinthLevel : MonoBehaviour
         }
 
         var takenPositions = new List<Vector3>();
-        takenPositions.Add(new Vector3(0 * TileWidth, 0.5f, 0 * TileWidth));
-        takenPositions.Add(new Vector3(6 * TileWidth, 0.5f, 0 * TileWidth));
-        takenPositions.Add(new Vector3(6 * TileWidth, 0.5f, 6 * TileWidth));
-        takenPositions.Add(new Vector3(0 * TileWidth, 0.5f, 6 * TileWidth));
+        takenPositions.Add(new Vector3(0 * TileWidth, 0.6f, 0 * TileWidth));
+        takenPositions.Add(new Vector3(6 * TileWidth, 0.6f, 0 * TileWidth));
+        takenPositions.Add(new Vector3(6 * TileWidth, 0.6f, 6 * TileWidth));
+        takenPositions.Add(new Vector3(0 * TileWidth, 0.6f, 6 * TileWidth));
 
         foreach(var collectable in Collectables)
         {
