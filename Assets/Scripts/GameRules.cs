@@ -9,7 +9,7 @@ namespace Assets.Scripts
         public PlayerObjective()
         {
             Objective = Objective.Collectable;
-            Collectable = Collectable.Coin;
+            Collectable = Collectable.Anvil;
         }
 
         public PlayerObjective(Objective objective, Collectable collectable)
@@ -146,7 +146,7 @@ namespace Assets.Scripts
                 }
                 else
                 {
-                    PlayerStats[playerId].CurrentObjective = new PlayerObjective(Objective.ReturnToStart, Collectable.Coin);
+                    PlayerStats[playerId].CurrentObjective = new PlayerObjective(Objective.ReturnToStart, Collectable.Anvil);
                 }
             }
         }

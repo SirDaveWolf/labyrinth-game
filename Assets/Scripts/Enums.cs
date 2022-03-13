@@ -52,11 +52,30 @@ namespace Assets.Scripts
 
     public enum Collectable
     {
-        Coin = 0,
-        Gem,
+        Anvil = 0,
+        Barrel,
+        Book,
+        Bricks,
+        Candle,
+        Chalice,
+        Cheese,
+        Chest,
+        Coin,
+        CoinPouch,
         Crystal,
-        Key
-        // [...]
+        Diamond,
+        Dice,
+        Hammer,
+        Mushroom,
+        Key,
+        Perl,
+        Ring,
+        Scepter,
+        Screw,
+        Shield,
+        Stone,
+        Sword,
+        WoodenStump
     }
 
     public enum Objective : int
