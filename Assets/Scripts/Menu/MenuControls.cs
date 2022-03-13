@@ -1,4 +1,5 @@
 using Assets.Scripts;
+using Assets.Scripts.Menu;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,10 +13,15 @@ public class MenuControls : MonoBehaviour
     public GameObject PlayMenu;
 
     public Dropdown ThemeDropdown;
-    
+
+    private Options _options;
 
     private void Start()
     {
+        _options = new Options();
+        _options.Load();
+        _options.SetGlobals();
+
         ShowMainMenu();
 
         var themes = System.Enum.GetNames(typeof(GameTheme));
@@ -34,6 +40,9 @@ public class MenuControls : MonoBehaviour
 
     public void ShowMainMenu()
     {
+        _options.GetFromGlobals();
+        _options.Save();
+
         MainMenu.SetActive(true);
         OptionsMenu.SetActive(false);
         PlayMenu.SetActive(false);

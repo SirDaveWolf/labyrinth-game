@@ -1,4 +1,5 @@
 using Assets.Scripts;
+using Assets.Scripts.Menu;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,7 +19,7 @@ public class OptionsMenuControls : MonoBehaviour
         foreach (var graphicsLevel in graphicsLevels)
             GraphicsDropdown.options.Add(new Dropdown.OptionData(graphicsLevel));
 
-        GraphicsDropdown.value = (int)VideoQualityLevels.High;
+        GraphicsDropdown.value = QualitySettings.GetQualityLevel();
         GraphicsDropdown.RefreshShownValue();
     }
 
