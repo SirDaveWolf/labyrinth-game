@@ -1,0 +1,10 @@
+
+Pilz-Normal rüber
+Truhe-Normal rüber
+Würfel-Normmal rüber
+Ziegelstein- Normal rüber
+Münzbeutel- Die Münzen sind da auch nicht metalisch
+Schraube-Metalisch machen
+Zepter- etwas Metalisch machen
+
+Einige Objekte tauchen leicht in den Boden, die Truhe dreht sich komisch.
