@@ -43,9 +43,14 @@ public class FloatAndRotate : MonoBehaviour
             transform.Rotate(new Vector3(0, 45 * Time.deltaTime, 0));
             transform.position += new Vector3(0, direction, 0) * Time.deltaTime;
 
-            if (transform.position.y > initialYPosition + 1 ||
-                transform.position.y < initialYPosition)
-                direction *= -1;
+            if (transform.position.y > initialYPosition + 1)
+            {
+                direction = -1;
+            }
+            else if(transform.position.y < initialYPosition)
+            {
+                direction = 1;
+            }
         }
 
         Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
