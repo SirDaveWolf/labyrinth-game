@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 3434657558457620575}
   - component: {fileID: 1730931809555126266}
   - component: {fileID: 4603090065460421424}
-  - component: {fileID: 8725165611110735987}
   - component: {fileID: 2150347631250912022}
+  - component: {fileID: 5134752582782071207}
   m_Layer: 0
   m_Name: Amboss
   m_TagString: Untagged
@@ -83,19 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8725165611110735987
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2657557496856199909}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.02980387, y: 0.01955653, z: 0.015838364}
-  m_Center: {x: -0.0051409267, y: 0.007718946, z: 0.002358866}
 --- !u!114 &2150347631250912022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108,3 +95,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d2de4eb687f88044a8f1659b620d501, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &5134752582782071207
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2657557496856199909}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.021803875, y: 0.015556527, z: 0.009838364}
+  m_Center: {x: -0.0051409267, y: 0.007718946, z: 0.002358866}
