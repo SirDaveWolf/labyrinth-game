@@ -44,14 +44,14 @@ public class LabyrinthLevel : MonoBehaviour
     public Material GreenMaterial;
     public Material YellowMaterial;
 
-    public AudioClip RockMoveSoundA;
-    public AudioClip RockMoveSoundB;
+    private AudioClip RockMoveSoundA;
+    private AudioClip RockMoveSoundB;
 
-    public AudioClip RockPushSound;
+    private AudioClip RockPushSound;
 
-    public AudioClip RockRotateSound;
+    private AudioClip RockRotateSound;
 
-    public AudioClip CollectSound;
+    private AudioClip CollectSound;
 
     public Camera GameCamera;
 
@@ -112,6 +112,12 @@ public class LabyrinthLevel : MonoBehaviour
 
         _escapeMenuControls = EscapeMenu.GetComponent<EscapeMenuControls>();
         _escapeMenuControls.GoBackToGame();
+
+        RockPushSound = Resources.Load<AudioClip>("Audio/Stone_push_effect");
+        RockRotateSound = Resources.Load<AudioClip>("Audio/Stone_rotate_effect");
+        RockMoveSoundA = Resources.Load<AudioClip>("Audio/Rock_Move");
+        RockMoveSoundB = Resources.Load<AudioClip>("Audio/Rock_Move_B");
+        CollectSound = Resources.Load<AudioClip>("Audio/collect");
 
         GenerateMap();
 
