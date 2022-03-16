@@ -33,6 +33,9 @@ public class LabyrinthLevel : MonoBehaviour
 
     public List<GameObject> Borders;
 
+    public GameObject BackgroundPlane;
+    public List<Material> BackgroundPlaneMaterials;
+
     public GameObject PlayerBase;
     public GameObject PlayerStartBase;
 
