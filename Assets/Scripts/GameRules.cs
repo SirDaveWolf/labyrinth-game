@@ -32,6 +32,7 @@ namespace Assets.Scripts
     public static class GameRules
     {
         public static int PlayerCount { get; set; } = 2;
+        public static int MaxCardsPerPlayer { get; set; } = 6;
         public static GameTheme GameTheme { get; set; } = GameTheme.Default;
         private static PlayerStats[] PlayerStats { get; set; } = new PlayerStats[4];
 
@@ -85,7 +86,7 @@ namespace Assets.Scripts
             {
                 PlayerStats[playerId] = new PlayerStats();
 
-                for (var i = 0; i < 1; i++)
+                for (var i = 0; i < MaxCardsPerPlayer; i++)
                 {
                     if (shuffledCollectables.Any())
                     {
