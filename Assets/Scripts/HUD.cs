@@ -16,11 +16,14 @@ public class HUD : MonoBehaviour
 
     public Text CurrentPlayerText;
 
+    public GameObject WinnerPanel;
+
     private List<bool> ShowPlayerCard;
 
     // Start is called before the first frame update
     void Start()
     {
+        WinnerPanel.SetActive(false);
         for (var id = 0; id < GameRules.PlayerCount; id++)
         {
             PlayerCards[id].GetComponent<RawImage>().texture = CollectableCards.Last();
@@ -44,7 +47,15 @@ public class HUD : MonoBehaviour
     private Texture GetTextureForPlayer(Int32 playerId)
     {
         var playerObjective = GameRules.GetObjectiveForPlayer(playerId);
-        return CollectableCards[(int)playerObjective.Collectable];
+
+        if (playerObjective.Objective == Objective.ReturnToStart)
+        {
+            return CollectableCards[CollectableCards.Count - 2];
+        }
+        else
+        {
+            return CollectableCards[(int)playerObjective.Collectable];
+        }
     }
 
     // Update is called once per frame
@@ -71,6 +82,29 @@ public class HUD : MonoBehaviour
                 CurrentPlayerText.text = "Yellow";
                 CurrentPlayerText.color = Color.yellow;
                 break;
+        }
+
+        if(GameRules.Winner != null)
+        {
+            WinnerPanel.SetActive(true);
+            switch(GameRules.Winner)
+            {
+                case 0:
+                    WinnerPanel.GetComponentInChildren<Text>().text = "Red player wins!";
+                    break;
+
+                case 1:
+                    WinnerPanel.GetComponentInChildren<Text>().text = "Green player wins!";
+                    break;
+
+                case 2:
+                    WinnerPanel.GetComponentInChildren<Text>().text = "Blue player wins!";
+                    break;
+
+                case 3:
+                    WinnerPanel.GetComponentInChildren<Text>().text = "Yellow player wins!";
+                    break;
+            }
         }
     }
 

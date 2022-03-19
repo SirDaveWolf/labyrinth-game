@@ -20,6 +20,14 @@ namespace Assets.Scripts
         Player_3
     }
 
+    public enum PlayerStartTags : int
+    {
+        PlayerStart_0 = 0,
+        PlayerStart_1,
+        PlayerStart_2,
+        PlayerStart_3
+    }
+
     public enum TileType : int
     {
         Straight = 0,

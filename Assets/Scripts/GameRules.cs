@@ -40,6 +40,8 @@ namespace Assets.Scripts
 
         public static bool IsPushingTiles { get; private set; } = false;
 
+        public static int? Winner { get; set; } = null;
+
         public static void GoIntoPossessionMode()
         {
             IsInPossessionMode = true;
@@ -83,7 +85,7 @@ namespace Assets.Scripts
             {
                 PlayerStats[playerId] = new PlayerStats();
 
-                for (var i = 0; i < 6; i++)
+                for (var i = 0; i < 1; i++)
                 {
                     if (shuffledCollectables.Any())
                     {
@@ -169,7 +171,9 @@ namespace Assets.Scripts
         public static void Reset()
         {
             IsInPossessionMode = false;
+            IsPushingTiles = false;
             CurrentPlayer = PlayerTags.Player_0;
+            Winner = null;
         }
 
         public static PlayerObjective GetObjectiveForPlayer(int playerId)

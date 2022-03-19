@@ -145,24 +145,22 @@ public class LabyrinthLevel : MonoBehaviour
                         break;
 
                     case ObjectiveCheckResult.GameWon:
-
-                        // Do something with UI and pause the game
-
-                        break;
-
-                    case ObjectiveCheckResult.Collectable:
-
-                        // Change card on UI
-                        if(GameRules.IsInPossessionMode)
+                        GameRules.Winner = GameRules.GetCurrentPlayer();
+                        if (GameRules.IsInPossessionMode)
                         {
                             UnpossessPlayer(_players[GameRules.GetCurrentPlayer()]);
                         }
 
+                        
                         break;
 
+                    case ObjectiveCheckResult.Collectable:
                     case ObjectiveCheckResult.ReturnToStart:
 
-                        // Display on UI that all cards have been collected and that the player needs to return home now
+                        if (GameRules.IsInPossessionMode)
+                        {
+                            UnpossessPlayer(_players[GameRules.GetCurrentPlayer()]);
+                        }
 
                         break;
                 }
@@ -183,55 +181,58 @@ public class LabyrinthLevel : MonoBehaviour
 
         if (false == _escapeMenuControls.IsActive())
         {
-            if (GameRules.IsInPossessionMode)
+            if (GameRules.Winner == null)
             {
-                if (LevelControls["Push"].WasPressedThisFrame())
+                if (GameRules.IsInPossessionMode)
                 {
-                    UnpossessPlayer(_players[GameRules.GetCurrentPlayer()]);
-                }
-            }
-            else
-            {
-                if (false == GameRules.IsPushingTiles)
-                {
-                    if (LevelControls["Rotate"].WasPressedThisFrame())
-                    {
-                        PlayRockRotateSound();
-                        _looseTile.transform.Rotate(0, 90, 0);
-                    }
-
-                    var horizontalMovement = LevelControls["Horizontal"].ReadValue<float>();
-                    if (horizontalMovement > 0)
-                    {
-                        if (false == _isMoveAxisInUse)
-                        {
-                            RepositionLoseTile(LooseTileMoveDirection.Right);
-                            _isMoveAxisInUse = true;
-                        }
-                    }
-
-                    if (horizontalMovement < 0)
-                    {
-                        if (false == _isMoveAxisInUse)
-                        {
-                            RepositionLoseTile(LooseTileMoveDirection.Left);
-                            _isMoveAxisInUse = true;
-                        }
-                    }
-
-                    if (horizontalMovement == 0)
-                    {
-                        _isMoveAxisInUse = false;
-                    }
-
                     if (LevelControls["Push"].WasPressedThisFrame())
                     {
-                        PushLooseTile(() =>
+                        UnpossessPlayer(_players[GameRules.GetCurrentPlayer()]);
+                    }
+                }
+                else
+                {
+                    if (false == GameRules.IsPushingTiles)
+                    {
+                        if (LevelControls["Rotate"].WasPressedThisFrame())
                         {
-                            GameRules.StopPushing();
+                            PlayRockRotateSound();
+                            _looseTile.transform.Rotate(0, 90, 0);
+                        }
 
-                            PossessPlayer(_players[GameRules.GetCurrentPlayer()]);
-                        });
+                        var horizontalMovement = LevelControls["Horizontal"].ReadValue<float>();
+                        if (horizontalMovement > 0)
+                        {
+                            if (false == _isMoveAxisInUse)
+                            {
+                                RepositionLoseTile(LooseTileMoveDirection.Right);
+                                _isMoveAxisInUse = true;
+                            }
+                        }
+
+                        if (horizontalMovement < 0)
+                        {
+                            if (false == _isMoveAxisInUse)
+                            {
+                                RepositionLoseTile(LooseTileMoveDirection.Left);
+                                _isMoveAxisInUse = true;
+                            }
+                        }
+
+                        if (horizontalMovement == 0)
+                        {
+                            _isMoveAxisInUse = false;
+                        }
+
+                        if (LevelControls["Push"].WasPressedThisFrame())
+                        {
+                            PushLooseTile(() =>
+                            {
+                                GameRules.StopPushing();
+
+                                PossessPlayer(_players[GameRules.GetCurrentPlayer()]);
+                            });
+                        }
                     }
                 }
             }
@@ -293,22 +294,22 @@ public class LabyrinthLevel : MonoBehaviour
         var playerStart = Instantiate(PlayerStartBase, new Vector3(0, 0.01f, 0), Quaternion.identity);
         playerStart.GetComponent<MeshRenderer>().material = new Material(RedMaterial);
         playerStart.transform.parent = _tiles[0, 0].transform;
-        playerStart.tag = "PlayerStart_0";
+        playerStart.tag = Globals.GetEnumAsName(PlayerStartTags.PlayerStart_0);
 
         playerStart = Instantiate(PlayerStartBase, new Vector3(6 * TileWidth, 0.1f, 0), Quaternion.identity);
         playerStart.GetComponent<MeshRenderer>().material = new Material(GreenMaterial);
         playerStart.transform.parent = _tiles[6, 0].transform;
-        playerStart.tag = "PlayerStart_1";
+        playerStart.tag = Globals.GetEnumAsName(PlayerStartTags.PlayerStart_1);
 
         playerStart = Instantiate(PlayerStartBase, new Vector3(6 * TileWidth, 0.1f, 6 * TileWidth), Quaternion.identity);
         playerStart.GetComponent<MeshRenderer>().material = new Material(BlueMaterial);
         playerStart.transform.parent = _tiles[6, 6].transform;
-        playerStart.tag = "PlayerStart_2";
+        playerStart.tag = Globals.GetEnumAsName(PlayerStartTags.PlayerStart_2);
 
         playerStart = Instantiate(PlayerStartBase, new Vector3(0, 0.1f, 6 * TileWidth), Quaternion.identity);
         playerStart.GetComponent<MeshRenderer>().material = new Material(YellowMaterial);
         playerStart.transform.parent = _tiles[0, 6].transform;
-        playerStart.tag = "PlayerStart_3";
+        playerStart.tag = Globals.GetEnumAsName(PlayerStartTags.PlayerStart_3);
 
         for (int x = 0; x < 7; x++)
         {
