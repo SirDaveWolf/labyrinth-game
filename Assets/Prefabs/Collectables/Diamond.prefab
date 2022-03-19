@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 777651174162207123}
   - component: {fileID: 2092854682177768724}
   - component: {fileID: 2092854682177768725}
+  - component: {fileID: -9110342577104307564}
   m_Layer: 0
   m_Name: Diamond
-  m_TagString: Untagged
+  m_TagString: Collectable_Diamond
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,6 +110,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d2de4eb687f88044a8f1659b620d501, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-9110342577104307564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1281900744172449862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d50d33ae37ddbff48bdfce29a7e55864, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CardPreview: {fileID: 0}
+  CardImage: {fileID: 2800000, guid: a1a3282631e5571429ac1e2437909c33, type: 3}
 --- !u!1 &4510258751592259838
 GameObject:
   m_ObjectHideFlags: 0

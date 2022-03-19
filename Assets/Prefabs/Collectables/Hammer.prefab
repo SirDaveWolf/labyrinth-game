@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 3092511221146502054}
   - component: {fileID: 2523454730247321634}
   - component: {fileID: 542620108944586578}
+  - component: {fileID: 8566346169317625097}
   m_Layer: 0
   m_Name: Hammer
-  m_TagString: Untagged
+  m_TagString: Collectable_Hammer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -108,3 +109,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.010454446, y: 0.019742772, z: 0.005934608}
   m_Center: {x: 0.00057279086, y: -0.008413086, z: 0}
+--- !u!114 &8566346169317625097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3596743199038071411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d50d33ae37ddbff48bdfce29a7e55864, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CardPreview: {fileID: 0}
+  CardImage: {fileID: 2800000, guid: 8da516289891dce41ac803f7e5699191, type: 3}

@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 3572009002993329287}
   - component: {fileID: 7919010046401516268}
   - component: {fileID: 8345430302363185303}
+  - component: {fileID: -768220862683327091}
   m_Layer: 0
   m_Name: Stone
-  m_TagString: Untagged
+  m_TagString: Collectable_Stone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,6 +110,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.0038320625, y: 0.0036148736, z: 0.0038607721}
   m_Center: {x: 0.00016883518, y: -0.00005575602, z: -0.0013072378}
+--- !u!114 &-768220862683327091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3067706931839075666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d50d33ae37ddbff48bdfce29a7e55864, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CardPreview: {fileID: 0}
+  CardImage: {fileID: 2800000, guid: d1a13687fc61bb84bb2726773c333bc3, type: 3}
 --- !u!1 &7405201899158151024
 GameObject:
   m_ObjectHideFlags: 0

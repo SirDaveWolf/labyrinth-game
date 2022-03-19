@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 6424600697211005756}
   - component: {fileID: 7390084609740659586}
   - component: {fileID: 5272427191630235288}
+  - component: {fileID: 8686584176329626481}
   m_Layer: 0
   m_Name: Holzstumpf
-  m_TagString: Untagged
+  m_TagString: Collectable_WoodenStump
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -108,3 +109,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.013455166, y: 0.007861462, z: 0.013063467}
   m_Center: {x: -0.00004568626, y: -0.0034205473, z: -0.0007838564}
+--- !u!114 &8686584176329626481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4767122034751867625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d50d33ae37ddbff48bdfce29a7e55864, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CardPreview: {fileID: 0}
+  CardImage: {fileID: 2800000, guid: 375d8361e1b23e74b9a01aed5c777abc, type: 3}

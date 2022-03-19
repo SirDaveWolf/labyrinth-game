@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 4828061167169879654}
   - component: {fileID: 8673970020614030880}
   - component: {fileID: 5369876720080617527}
+  - component: {fileID: -2907401928764689141}
   m_Layer: 0
   m_Name: "W\xFCrfel"
-  m_TagString: Untagged
+  m_TagString: Collectable_Dice
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -108,3 +109,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.012, y: 0.012, z: 0.012999998}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-2907401928764689141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6341143579295686579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d50d33ae37ddbff48bdfce29a7e55864, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CardPreview: {fileID: 0}
+  CardImage: {fileID: 2800000, guid: 8a194ee2be715f347ad54a5084fd94c1, type: 3}

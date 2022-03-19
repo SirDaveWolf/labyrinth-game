@@ -17,6 +17,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class LabyrinthLevel : MonoBehaviour
 {
@@ -65,6 +66,8 @@ public class LabyrinthLevel : MonoBehaviour
     public List<GameObject> Collectables;
 
     public InputActionMap LevelControls;
+
+    public RawImage PreviewCard;
 
     private GameObject[] _players;
 
@@ -133,8 +136,8 @@ public class LabyrinthLevel : MonoBehaviour
             {
                 CheckAndRepositionPlayerIfOutOfBounds(player);
 
-                var playerId = Globals.GetPlayerId(player.tag);
-                var result = GameRules.CheckPlayerObjective(playerId);
+                var id = GameRules.GetCurrentPlayer();
+                var result = GameRules.CheckPlayerObjective(id);
 
                 switch (result)
                 {
@@ -149,8 +152,11 @@ public class LabyrinthLevel : MonoBehaviour
 
                     case ObjectiveCheckResult.Collectable:
 
-                        // Change card on UI 
-                        PlayCollectSound();
+                        // Change card on UI
+                        if(GameRules.IsInPossessionMode)
+                        {
+                            UnpossessPlayer(_players[GameRules.GetCurrentPlayer()]);
+                        }
 
                         break;
 
@@ -182,7 +188,6 @@ public class LabyrinthLevel : MonoBehaviour
                 if (LevelControls["Push"].WasPressedThisFrame())
                 {
                     UnpossessPlayer(_players[GameRules.GetCurrentPlayer()]);
-                    GameRules.SetNextPlayer();
                 }
             }
             else
@@ -288,18 +293,22 @@ public class LabyrinthLevel : MonoBehaviour
         var playerStart = Instantiate(PlayerStartBase, new Vector3(0, 0.01f, 0), Quaternion.identity);
         playerStart.GetComponent<MeshRenderer>().material = new Material(RedMaterial);
         playerStart.transform.parent = _tiles[0, 0].transform;
+        playerStart.tag = "PlayerStart_0";
 
         playerStart = Instantiate(PlayerStartBase, new Vector3(6 * TileWidth, 0.1f, 0), Quaternion.identity);
         playerStart.GetComponent<MeshRenderer>().material = new Material(GreenMaterial);
         playerStart.transform.parent = _tiles[6, 0].transform;
+        playerStart.tag = "PlayerStart_1";
 
         playerStart = Instantiate(PlayerStartBase, new Vector3(6 * TileWidth, 0.1f, 6 * TileWidth), Quaternion.identity);
         playerStart.GetComponent<MeshRenderer>().material = new Material(BlueMaterial);
         playerStart.transform.parent = _tiles[6, 6].transform;
+        playerStart.tag = "PlayerStart_2";
 
         playerStart = Instantiate(PlayerStartBase, new Vector3(0, 0.1f, 6 * TileWidth), Quaternion.identity);
         playerStart.GetComponent<MeshRenderer>().material = new Material(YellowMaterial);
         playerStart.transform.parent = _tiles[0, 6].transform;
+        playerStart.tag = "PlayerStart_3";
 
         for (int x = 0; x < 7; x++)
         {
@@ -374,6 +383,7 @@ public class LabyrinthLevel : MonoBehaviour
                 if (takenPositions.Contains(location) == false)
                 {
                     var collectableInstance = Instantiate(collectable, location, Quaternion.identity);
+                    collectableInstance.GetComponent<CollectableHover>().CardPreview = PreviewCard;
                     collectableInstance.transform.parent = _tiles[x, y].transform;
                     takenPositions.Add(location);
                     wasSet = true;
@@ -664,6 +674,7 @@ public class LabyrinthLevel : MonoBehaviour
             IngameMenu.SetActive(false);
             _border.SetActive(true);
             GameRules.GoIntoPossessionMode();
+            IngameMenu.GetComponent<HUD>().HideAllPlayerCards();
             GameCamera.GetComponent<AudioListener>().enabled = false;
             player.GetComponent<MovementHandler>().Activate();
             player.GetComponent<MouseHandler>().Activate();
@@ -682,6 +693,8 @@ public class LabyrinthLevel : MonoBehaviour
             player.GetComponent<MouseHandler>().Deactivate();
             _looseTile.GetComponent<MeshRenderer>().enabled = true;
             GameCamera.GetComponent<AudioListener>().enabled = true;
+
+            GameRules.SetNextPlayer();
         }
     }
 

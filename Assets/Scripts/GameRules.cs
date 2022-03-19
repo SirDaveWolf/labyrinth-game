@@ -90,6 +90,8 @@ namespace Assets.Scripts
                         PlayerStats[playerId].RemainingCollectables.Enqueue(shuffledCollectables.Dequeue());
                     }
                 }
+
+                SetPlayerNextObjective(playerId);
             }
         }
 
@@ -168,6 +170,16 @@ namespace Assets.Scripts
         {
             IsInPossessionMode = false;
             CurrentPlayer = PlayerTags.Player_0;
+        }
+
+        public static PlayerObjective GetObjectiveForPlayer(int playerId)
+        {
+            if (IsValidPlayer(playerId))
+            {
+                return PlayerStats[playerId].CurrentObjective;
+            }
+            else
+                return null;
         }
     }
 }

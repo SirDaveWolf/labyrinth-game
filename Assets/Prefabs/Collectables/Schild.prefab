@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 8445714317221031772}
   - component: {fileID: 4824828091605810922}
   - component: {fileID: 5800894938431182175}
+  - component: {fileID: 2778399678958363814}
   m_Layer: 0
   m_Name: Schild
-  m_TagString: Untagged
+  m_TagString: Collectable_Shield
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,6 +110,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.00947304, y: 0.012150535, z: 0.005}
   m_Center: {x: 0, y: 0.0000020794105, z: 0.000041281994}
+--- !u!114 &2778399678958363814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7941473543455002249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d50d33ae37ddbff48bdfce29a7e55864, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CardPreview: {fileID: 0}
+  CardImage: {fileID: 2800000, guid: 0d530c400ff70f343893d7b0a44c18b2, type: 3}
 --- !u!1 &8172910986949265465
 GameObject:
   m_ObjectHideFlags: 0

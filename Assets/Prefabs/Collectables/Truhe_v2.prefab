@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 8698646131340317152}
   - component: {fileID: 9039966734279805370}
   - component: {fileID: -7687477661239857343}
+  - component: {fileID: -7251739668477662252}
   m_Layer: 0
   m_Name: Truhe_v2
-  m_TagString: Untagged
+  m_TagString: Collectable_Chest
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -108,3 +109,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.0055914465, y: 0.006041069, z: 0.009925682}
   m_Center: {x: -0.00017012644, y: 0.0004605716, z: 0.000018162653}
+--- !u!114 &-7251739668477662252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7185265476035031093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d50d33ae37ddbff48bdfce29a7e55864, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CardPreview: {fileID: 0}
+  CardImage: {fileID: 2800000, guid: 5e1d651438502cc40829ce1d62c8c0e8, type: 3}

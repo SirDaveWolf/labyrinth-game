@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 3057385112019003359}
   - component: {fileID: 7412380328680840004}
   - component: {fileID: 4547876531997530673}
+  - component: {fileID: -1006138474321622315}
   m_Layer: 0
   m_Name: Kelch
-  m_TagString: Untagged
+  m_TagString: Collectable_Chalice
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,6 +110,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.0067637805, y: 0.009578703, z: 0.0067637814}
   m_Center: {x: 1.1641532e-10, y: 0.0047893515, z: -3.4924597e-10}
+--- !u!114 &-1006138474321622315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3562065828962256394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d50d33ae37ddbff48bdfce29a7e55864, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CardPreview: {fileID: 0}
+  CardImage: {fileID: 2800000, guid: 926df82b106ba4a4da6c9b03d47d8b2c, type: 3}
 --- !u!1 &3772039470793647371
 GameObject:
   m_ObjectHideFlags: 0

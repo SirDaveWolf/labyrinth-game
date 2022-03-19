@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2290915230906868397}
   - component: {fileID: 2601621880483076385}
   - component: {fileID: 8466018796927183421}
+  - component: {fileID: 8782852530239315852}
   m_Layer: 0
   m_Name: Crystal
   m_TagString: Collectable_Crystal
@@ -109,6 +110,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d2de4eb687f88044a8f1659b620d501, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8782852530239315852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 345100639179883384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d50d33ae37ddbff48bdfce29a7e55864, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CardPreview: {fileID: 0}
+  CardImage: {fileID: 2800000, guid: ecfad43bc91554c4ab6b6a2d62444a26, type: 3}
 --- !u!1 &9210802915075327306
 GameObject:
   m_ObjectHideFlags: 0

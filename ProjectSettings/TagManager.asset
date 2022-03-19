@@ -8,6 +8,34 @@ TagManager:
   - Player_1
   - Player_2
   - Player_3
+  - Collectable_Crystal
+  - Collectable_Coin
+  - Collectable_Anvil
+  - Collectable_Barrel
+  - Collectable_Book
+  - Collectable_Bricks
+  - Collectable_Candle
+  - Collectable_Chalice
+  - Collectable_Cheese
+  - Collectable_Chest
+  - Collectable_CoinBag
+  - Collectable_Diamond
+  - Collectable_Dice
+  - Collectable_Hammer
+  - Collectable_Key
+  - Collectable_Mushroom
+  - Collectable_Perl
+  - Collectable_Ring
+  - Collectable_Scepter
+  - Collectable_Screw
+  - Collectable_Shield
+  - Collectable_Stone
+  - Collectable_Sword
+  - Collectable_WoodenStump
+  - PlayerStart_0
+  - PlayerStart_1
+  - PlayerStart_2
+  - PlayerStart_3
   layers:
   - Default
   - TransparentFX

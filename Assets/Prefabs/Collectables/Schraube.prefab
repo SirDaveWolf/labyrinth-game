@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 1783101403078098788}
   - component: {fileID: 75058432023127428}
   - component: {fileID: 5580137209104086050}
+  - component: {fileID: 3296386458367329458}
   m_Layer: 0
   m_Name: Schraube
-  m_TagString: Untagged
+  m_TagString: Collectable_Screw
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -108,3 +109,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d2de4eb687f88044a8f1659b620d501, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3296386458367329458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 269693947290836657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d50d33ae37ddbff48bdfce29a7e55864, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CardPreview: {fileID: 0}
+  CardImage: {fileID: 2800000, guid: e383767ce2236394a85af2770c1df89e, type: 3}

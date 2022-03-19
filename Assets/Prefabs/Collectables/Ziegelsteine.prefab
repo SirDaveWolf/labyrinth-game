@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 3695909381796690136}
   - component: {fileID: 738612040795350986}
   - component: {fileID: 8728074336908133961}
+  - component: {fileID: -5153284458302848204}
   m_Layer: 0
   m_Name: Ziegelsteine
-  m_TagString: Untagged
+  m_TagString: Collectable_Bricks
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -108,3 +109,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.009217488, y: 0.0074358075, z: 0.012471645}
   m_Center: {x: 0.00008578203, y: 0.001988552, z: 0.0008162896}
+--- !u!114 &-5153284458302848204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2903271931285985549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d50d33ae37ddbff48bdfce29a7e55864, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CardPreview: {fileID: 0}
+  CardImage: {fileID: 2800000, guid: 7c512a5ee2c98ae4db8f64742c25d847, type: 3}
