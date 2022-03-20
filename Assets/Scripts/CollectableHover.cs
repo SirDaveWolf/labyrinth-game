@@ -20,12 +20,15 @@ public class CollectableHover : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
-        foreach (RaycastHit hit in Physics.RaycastAll(ray))
+        if (CardPreview != null && CardImage != null)
         {
-            if (hit.collider == myCollider)
+            Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
+            foreach (RaycastHit hit in Physics.RaycastAll(ray))
             {
-                CardPreview.texture = CardImage;
+                if (hit.collider == myCollider)
+                {
+                    CardPreview.texture = CardImage;
+                }
             }
         }
     }
