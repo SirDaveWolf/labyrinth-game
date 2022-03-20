@@ -1731,6 +1731,22 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
+    - m_Name: CursorHorizontal
+      m_Type: 1
+      m_ExpectedControlType: Button
+      m_Id: c9a678b1-9224-407d-a41f-b82a0c5e85f7
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    - m_Name: CursorVertical
+      m_Type: 1
+      m_ExpectedControlType: Button
+      m_Id: cdf88584-5bd2-4a34-927e-473cdcdd8db5
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
     m_Bindings:
     - m_Name: 
       m_Id: 77f6ba93-42c9-4d75-87cd-f7eb37e66a14
@@ -1828,6 +1844,54 @@ MonoBehaviour:
       m_Groups: 
       m_Action: Escape
       m_Flags: 0
+    - m_Name: 1D Axis
+      m_Id: 2eb0fdab-2f99-4a08-afdf-e3c61f432cca
+      m_Path: 1DAxis
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: CursorHorizontal
+      m_Flags: 4
+    - m_Name: negative
+      m_Id: cddffac5-d5bc-4e06-ac3b-53b254adb518
+      m_Path: <Gamepad>/rightStick/left
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: CursorHorizontal
+      m_Flags: 8
+    - m_Name: positive
+      m_Id: 6c71a2d7-fff2-4e50-bcb8-8bfbb173a39e
+      m_Path: <Gamepad>/rightStick/right
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: CursorHorizontal
+      m_Flags: 8
+    - m_Name: 1D Axis
+      m_Id: 28b077a2-5383-4111-83fe-ca7f99aa0c25
+      m_Path: 1DAxis
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: CursorVertical
+      m_Flags: 4
+    - m_Name: negative
+      m_Id: 84c6bd35-a547-4d07-964f-beb41ca1beba
+      m_Path: <Gamepad>/rightStick/down
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: CursorVertical
+      m_Flags: 8
+    - m_Name: positive
+      m_Id: 4fb7356f-20ec-453b-8138-0a5d1ee5ffd5
+      m_Path: <Gamepad>/rightStick/up
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: CursorVertical
+      m_Flags: 8
   PreviewCard: {fileID: 652845345}
 --- !u!4 &1195836071
 Transform:
@@ -3066,7 +3130,7 @@ MonoBehaviour:
     x: 0
     y: 0
     width: 2
-    height: 4
+    height: 6
 --- !u!222 &1748077763
 CanvasRenderer:
   m_ObjectHideFlags: 0

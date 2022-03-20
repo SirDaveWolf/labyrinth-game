@@ -13,10 +13,13 @@ https://creativecommons.org/licenses/by/4.0/
  * */
 
 using Assets.Scripts;
+using Assets.Scripts.Windows;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.LowLevel;
 using UnityEngine.UI;
 
 public class LabyrinthLevel : MonoBehaviour
@@ -232,6 +235,26 @@ public class LabyrinthLevel : MonoBehaviour
 
                                 PossessPlayer(_players[GameRules.GetCurrentPlayer()]);
                             });
+                        }
+
+                        var horizontalCursorMovementController = LevelControls["CursorHorizontal"].ReadValue<float>();
+                        var verticalCursorMovementController = LevelControls["CursorVertical"].ReadValue<float>();
+
+                        if(horizontalCursorMovementController != 0 ||
+                            verticalCursorMovementController != 0)
+                        {
+                            var position = Mouse.current.position.ReadValue();
+                            position.x += horizontalCursorMovementController;
+                            position.y += verticalCursorMovementController;
+
+                            Mouse.current.WarpCursorPosition(position);
+                            InputState.Change(Mouse.current.position, position);
+                        }
+
+                        if(LevelControls["ControllerClick"].WasPressedThisFrame())
+                        {
+                            MouseAPI.MouseEvent(MouseAPI.MouseEventFlags.LeftDown);
+                            MouseAPI.MouseEvent(MouseAPI.MouseEventFlags.LeftUp);
                         }
                     }
                 }

@@ -13,6 +13,7 @@ public class MenuControls : MonoBehaviour
     public GameObject PlayMenu;
 
     public Dropdown ThemeDropdown;
+    public Dropdown CardsPerPlayerDropdown;
 
     private Options _options;
 
@@ -31,6 +32,9 @@ public class MenuControls : MonoBehaviour
         ThemeDropdown.RefreshShownValue();
 
         GameRules.GameTheme = GameTheme.Default;
+
+        CardsPerPlayerDropdown.value = GameRules.MaxCardsPerPlayer;
+        CardsPerPlayerDropdown.RefreshShownValue();
     }
 
     public void StartGame()
@@ -65,6 +69,11 @@ public class MenuControls : MonoBehaviour
     public void ChangeTheme(int value)
     {
         GameRules.GameTheme = (GameTheme)value;
+    }
+
+    public void ChangeCardsPerPlayer(int value)
+    {
+        GameRules.MaxCardsPerPlayer = value + 1;
     }
 
     public void ChangePlayers(int value)
