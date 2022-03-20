@@ -1747,6 +1747,14 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
+    - m_Name: ControllerClick
+      m_Type: 1
+      m_ExpectedControlType: Button
+      m_Id: 65556d1c-0b36-46ee-bfc3-6808ed8883fc
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
     m_Bindings:
     - m_Name: 
       m_Id: 77f6ba93-42c9-4d75-87cd-f7eb37e66a14
@@ -1892,6 +1900,14 @@ MonoBehaviour:
       m_Groups: 
       m_Action: CursorVertical
       m_Flags: 8
+    - m_Name: 
+      m_Id: c8f760e7-9594-4bf1-8c04-5b0b6155f75c
+      m_Path: <Gamepad>/rightShoulder
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: ControllerClick
+      m_Flags: 0
   PreviewCard: {fileID: 652845345}
 --- !u!4 &1195836071
 Transform:
