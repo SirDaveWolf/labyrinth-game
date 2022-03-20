@@ -13,6 +13,7 @@ public class MenuControls : MonoBehaviour
     public GameObject PlayMenu;
     public GameObject ControlsMenu;
     public GameObject RulesMenu;
+    public GameObject CreditsMenu;
 
     public Dropdown ThemeDropdown;
     public Dropdown CardsPerPlayerDropdown;
@@ -76,6 +77,7 @@ If you are unable to reach your goal directly get into the best possible startin
         PlayMenu.SetActive(false);
         ControlsMenu.SetActive(false);
         RulesMenu.SetActive(false);
+        CreditsMenu.SetActive(false);
     }
 
     public void ShowOptionsMenu()
@@ -85,6 +87,7 @@ If you are unable to reach your goal directly get into the best possible startin
         PlayMenu.SetActive(false);
         ControlsMenu.SetActive(false);
         RulesMenu.SetActive(false);
+        CreditsMenu.SetActive(false);
     }
 
     public void ShowPlayMenu()
@@ -94,6 +97,7 @@ If you are unable to reach your goal directly get into the best possible startin
         PlayMenu.SetActive(true);
         ControlsMenu.SetActive(false);
         RulesMenu.SetActive(false);
+        CreditsMenu.SetActive(false);
     }
 
     public void ShowControlsMenu()
@@ -103,6 +107,7 @@ If you are unable to reach your goal directly get into the best possible startin
         PlayMenu.SetActive(false);
         ControlsMenu.SetActive(true);
         RulesMenu.SetActive(false);
+        CreditsMenu.SetActive(false);
     }
 
     public void ShowRulesMenu()
@@ -112,6 +117,17 @@ If you are unable to reach your goal directly get into the best possible startin
         PlayMenu.SetActive(false);
         ControlsMenu.SetActive(false);
         RulesMenu.SetActive(true);
+        CreditsMenu.SetActive(false);
+    }
+
+    public void ShowCreditsMenu()
+    {
+        MainMenu.SetActive(false);
+        OptionsMenu.SetActive(false);
+        PlayMenu.SetActive(false);
+        ControlsMenu.SetActive(false);
+        RulesMenu.SetActive(false);
+        CreditsMenu.SetActive(true);
     }
 
     public void RulesNextText()
