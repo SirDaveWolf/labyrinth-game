@@ -59,6 +59,14 @@ namespace Assets.Scripts
         Right
     }
 
+    public enum ArrowMoveDirection : int
+    {
+        Left = 0,
+        Down,
+        Right,
+        Up
+    }
+
     public enum Collectable
     {
         Anvil = 0,

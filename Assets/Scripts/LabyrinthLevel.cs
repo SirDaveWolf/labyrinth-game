@@ -10,6 +10,8 @@ Music promoted by https://www.chosic.com/free-music/all/
 Creative Commons CC BY 4.0
 https://creativecommons.org/licenses/by/4.0/
 
+Music by ArtSlop_Flodur from Pixabay
+
  * */
 
 using Assets.Scripts;
@@ -72,7 +74,11 @@ public class LabyrinthLevel : MonoBehaviour
 
     public RawImage PreviewCard;
 
+    public GameObject PushIndicationArrow;
+
     private GameObject[] _players;
+
+    private GameObject[] _pushIndicationArrows;
 
     private GameObject _border;
     private GameObject[,] _tiles;
@@ -91,6 +97,7 @@ public class LabyrinthLevel : MonoBehaviour
         _random = new System.Random();
         _players = new GameObject[4];
         _tiles = new GameObject[7, 7];
+        _pushIndicationArrows = new GameObject[System.Enum.GetValues(typeof(LooseTileLocation)).Length - 1];
 
         RenderSettings.skybox = Skyboxes[(int)GameRules.GameTheme];
         SkyLight.GetComponent<Light>().color = SkyLightColors[(int)GameRules.GameTheme];
@@ -232,7 +239,6 @@ public class LabyrinthLevel : MonoBehaviour
                             PushLooseTile(() =>
                             {
                                 GameRules.StopPushing();
-
                                 PossessPlayer(_players[GameRules.GetCurrentPlayer()]);
                             });
                         }
@@ -421,6 +427,36 @@ public class LabyrinthLevel : MonoBehaviour
             _looseTile = Instantiate(StraightTiles[(int)GameRules.GameTheme], new Vector3(TileWidth, 0, -1 * TileWidth), Quaternion.identity);
         else 
             _looseTile = Instantiate(CornerTiles[(int)GameRules.GameTheme], new Vector3(TileWidth, 0, -1 * TileWidth), Quaternion.identity);
+
+        _pushIndicationArrows[(int)LooseTileLocation.BottomLeft] = Instantiate(PushIndicationArrow, new Vector3(TileWidth, 0, -1 * TileWidth), Quaternion.identity);
+        _pushIndicationArrows[(int)LooseTileLocation.BottomLeft].GetComponent<ArrowMove>().MoveDirection = ArrowMoveDirection.Up;
+        _pushIndicationArrows[(int)LooseTileLocation.BottomMiddle] = Instantiate(PushIndicationArrow, new Vector3(3 * TileWidth, 0, -1 * TileWidth), Quaternion.identity);
+        _pushIndicationArrows[(int)LooseTileLocation.BottomMiddle].GetComponent<ArrowMove>().MoveDirection = ArrowMoveDirection.Up;
+        _pushIndicationArrows[(int)LooseTileLocation.BottomRight] = Instantiate(PushIndicationArrow, new Vector3(5 * TileWidth, 0, -1 * TileWidth), Quaternion.identity);
+        _pushIndicationArrows[(int)LooseTileLocation.BottomRight].GetComponent<ArrowMove>().MoveDirection = ArrowMoveDirection.Up;
+
+        _pushIndicationArrows[(int)LooseTileLocation.RightBottom] = Instantiate(PushIndicationArrow, new Vector3(7 * TileWidth, 0, TileWidth), Quaternion.identity);
+        _pushIndicationArrows[(int)LooseTileLocation.RightBottom].GetComponent<ArrowMove>().MoveDirection = ArrowMoveDirection.Left;
+        _pushIndicationArrows[(int)LooseTileLocation.RightMiddle] = Instantiate(PushIndicationArrow, new Vector3(7 * TileWidth, 0, 3 * TileWidth), Quaternion.identity);
+        _pushIndicationArrows[(int)LooseTileLocation.RightMiddle].GetComponent<ArrowMove>().MoveDirection = ArrowMoveDirection.Left;
+        _pushIndicationArrows[(int)LooseTileLocation.RightTop] = Instantiate(PushIndicationArrow, new Vector3(7 * TileWidth, 0, 5 * TileWidth), Quaternion.identity);
+        _pushIndicationArrows[(int)LooseTileLocation.RightTop].GetComponent<ArrowMove>().MoveDirection = ArrowMoveDirection.Left;
+
+        _pushIndicationArrows[(int)LooseTileLocation.TopRight] = Instantiate(PushIndicationArrow, new Vector3(5 * TileWidth, 0, 7 * TileWidth), Quaternion.identity);
+        _pushIndicationArrows[(int)LooseTileLocation.TopRight].GetComponent<ArrowMove>().MoveDirection = ArrowMoveDirection.Down;
+        _pushIndicationArrows[(int)LooseTileLocation.TopMiddle] = Instantiate(PushIndicationArrow, new Vector3(3 * TileWidth, 0, 7 * TileWidth), Quaternion.identity);
+        _pushIndicationArrows[(int)LooseTileLocation.TopMiddle].GetComponent<ArrowMove>().MoveDirection = ArrowMoveDirection.Down;
+        _pushIndicationArrows[(int)LooseTileLocation.TopLeft] = Instantiate(PushIndicationArrow, new Vector3(TileWidth, 0, 7 * TileWidth), Quaternion.identity);
+        _pushIndicationArrows[(int)LooseTileLocation.TopLeft].GetComponent<ArrowMove>().MoveDirection = ArrowMoveDirection.Down;
+
+        _pushIndicationArrows[(int)LooseTileLocation.LeftTop] = Instantiate(PushIndicationArrow, new Vector3(-1 * TileWidth, 0, 5 * TileWidth), Quaternion.identity);
+        _pushIndicationArrows[(int)LooseTileLocation.LeftTop].GetComponent<ArrowMove>().MoveDirection = ArrowMoveDirection.Right;
+        _pushIndicationArrows[(int)LooseTileLocation.LeftMiddle] = Instantiate(PushIndicationArrow, new Vector3(-1 * TileWidth, 0, 3 * TileWidth), Quaternion.identity);
+        _pushIndicationArrows[(int)LooseTileLocation.LeftMiddle].GetComponent<ArrowMove>().MoveDirection = ArrowMoveDirection.Right;
+        _pushIndicationArrows[(int)LooseTileLocation.LeftBottom] = Instantiate(PushIndicationArrow, new Vector3(-1 * TileWidth, 0, TileWidth), Quaternion.identity);
+        _pushIndicationArrows[(int)LooseTileLocation.LeftBottom].GetComponent<ArrowMove>().MoveDirection = ArrowMoveDirection.Right;
+
+        _pushIndicationArrows[(int)_currentLooseTileLocation].SetActive(false);
     }
 
     private void RepositionLoseTile(LooseTileMoveDirection moveDirection)
@@ -429,21 +465,31 @@ public class LabyrinthLevel : MonoBehaviour
 
         if (moveDirection == LooseTileMoveDirection.Left)
         {
+            if(_currentLooseTileLocation != _invalidLooseTileLocation)
+                _pushIndicationArrows[(int)_currentLooseTileLocation].SetActive(true);
+
             _currentLooseTileLocation--;
             if (_invalidLooseTileLocation == _currentLooseTileLocation)
                 _currentLooseTileLocation--;
 
             if (_currentLooseTileLocation < LooseTileLocation.BottomLeft)
                 _currentLooseTileLocation = LooseTileLocation.LeftBottom;
+
+            _pushIndicationArrows[(int)_currentLooseTileLocation].SetActive(false);
         }
         else
         {
+            if (_currentLooseTileLocation != _invalidLooseTileLocation)
+                _pushIndicationArrows[(int)_currentLooseTileLocation].SetActive(true);
+
             _currentLooseTileLocation++;
             if (_invalidLooseTileLocation == _currentLooseTileLocation)
                 _currentLooseTileLocation++;
 
             if (_currentLooseTileLocation > LooseTileLocation.LeftBottom)
                 _currentLooseTileLocation = LooseTileLocation.BottomLeft;
+
+            _pushIndicationArrows[(int)_currentLooseTileLocation].SetActive(false);
         }
 
         switch(_currentLooseTileLocation)
@@ -502,12 +548,12 @@ public class LabyrinthLevel : MonoBehaviour
     {
         if (_currentLooseTileLocation == _invalidLooseTileLocation)
         {
-            // TODO: Notify player
             return false;
         }
 
         PlayRockPushSound();
 
+        _pushIndicationArrows[(int)_currentLooseTileLocation].SetActive(true);
         switch (_currentLooseTileLocation)
         {
             case LooseTileLocation.BottomLeft:
@@ -564,6 +610,8 @@ public class LabyrinthLevel : MonoBehaviour
 
     private void DoPushVerticalUp(int column, LooseTileLocation newLooseTileLocation, System.Action onPushDone)
     {
+        _pushIndicationArrows[(int)newLooseTileLocation].SetActive(false);
+
         GameRules.StartPushing();
         var direction = new Vector3(0, 0, TileWidth);
         _currentLooseTileLocation = _invalidLooseTileLocation = newLooseTileLocation;
@@ -694,7 +742,11 @@ public class LabyrinthLevel : MonoBehaviour
     {
         if (player)
         {
-            UnHoverAllCollectables();
+            foreach(var arrow in _pushIndicationArrows)
+            {
+                arrow.SetActive(false);
+            }
+
             IngameMenu.SetActive(false);
             _border.SetActive(true);
             GameRules.GoIntoPossessionMode();
@@ -710,6 +762,12 @@ public class LabyrinthLevel : MonoBehaviour
     {
         if (player)
         {
+            for(var i = 0; i < _pushIndicationArrows.Length; i++)
+            {
+                if(i != (int)_invalidLooseTileLocation && i != (int)_currentLooseTileLocation)
+                    _pushIndicationArrows[i].SetActive(true);
+            }
+
             IngameMenu.SetActive(true);
             _border.SetActive(false);
             GameRules.LeavePossessionMode();
@@ -768,14 +826,6 @@ public class LabyrinthLevel : MonoBehaviour
             {
                 player.GetComponent<MovementHandler>().SetNewPosition(player.transform.position = new Vector3(GameplayStatics.RoundToNearest10(player.transform.position.x), player.transform.position.y, TileWidth * 6));
             }
-        }
-    }
-
-    private void UnHoverAllCollectables()
-    {
-        foreach(var collectable in Collectables)
-        {
-            collectable.GetComponent<FloatAndRotate>().UnHover();
         }
     }
 }

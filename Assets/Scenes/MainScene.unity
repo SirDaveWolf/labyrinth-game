@@ -2993,6 +2993,7 @@ MonoBehaviour:
       m_Action: ControllerClick
       m_Flags: 0
   PreviewCard: {fileID: 652845345}
+  PushIndicationArrow: {fileID: 938906556626414582, guid: 092a5f9e0d1be5a49a955d8bf06fd32c, type: 3}
 --- !u!4 &1195836071
 Transform:
   m_ObjectHideFlags: 0
