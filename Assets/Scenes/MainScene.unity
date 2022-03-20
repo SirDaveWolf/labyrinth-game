@@ -2745,7 +2745,7 @@ MonoBehaviour:
   Borders:
   - {fileID: 2463989212178835889, guid: 3d0c21da977ca434ba7c19da54bd0a24, type: 3}
   - {fileID: 2463989212178835889, guid: ef6d2b0269570e74d8e1e160459d2ff6, type: 3}
-  - {fileID: 2463989212178835889, guid: ef6d2b0269570e74d8e1e160459d2ff6, type: 3}
+  - {fileID: 5514596162569911189, guid: 4b42381d691fe574987741407f2c5810, type: 3}
   PlayerBase: {fileID: 2138486073675341645, guid: bf75ae7c67dcfbb479882dce41e28235, type: 3}
   PlayerStartBase: {fileID: 1920316731900199724, guid: 13ddcc73c0ccc844482813a4518fef81, type: 3}
   RedMaterial: {fileID: 2100000, guid: 167b835c48eed9641af5c5eebd29fe68, type: 2}
