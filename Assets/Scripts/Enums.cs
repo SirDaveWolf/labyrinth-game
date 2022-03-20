@@ -9,7 +9,8 @@ namespace Assets.Scripts
     public enum GameTheme
     {
         Default,
-        Ice
+        Ice,
+        Desert
     }
 
     public enum PlayerTags : int
