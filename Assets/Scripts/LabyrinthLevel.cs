@@ -39,9 +39,6 @@ public class LabyrinthLevel : MonoBehaviour
 
     public List<GameObject> Borders;
 
-    public GameObject BackgroundPlane;
-    public List<Material> BackgroundPlaneMaterials;
-
     public GameObject PlayerBase;
     public GameObject PlayerStartBase;
 
@@ -106,10 +103,15 @@ public class LabyrinthLevel : MonoBehaviour
         audioSource.clip = BackgroundMusic[(int)GameRules.GameTheme];
         audioSource.Play();
 
-        if(GameRules.GameTheme == GameTheme.Ice)
+        if (GameRules.GameTheme == GameTheme.Ice || GameRules.GameTheme == GameTheme.Desert)
         {
             RenderSettings.ambientMode = UnityEngine.Rendering.AmbientMode.Flat;
             RenderSettings.ambientLight = new Color(0.65f, 0.65f, 0.65f);
+        }
+        else
+        {
+            RenderSettings.ambientMode = UnityEngine.Rendering.AmbientMode.Flat;
+            RenderSettings.ambientLight = new Color(0.2f, 0.2f, 0.2f);
         }
 
         GameCamera.transform.position = new Vector3(TileWidth * 3, TileWidth * 9, TileWidth * 3);

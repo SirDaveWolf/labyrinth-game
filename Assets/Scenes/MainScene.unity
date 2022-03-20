@@ -2721,24 +2721,31 @@ MonoBehaviour:
   Skyboxes:
   - {fileID: 2100000, guid: 97637a2a763b7f24b8da4e139e4144ca, type: 2}
   - {fileID: 2100000, guid: 3e56423e1fe71f94ea97f5bb2004a7e6, type: 2}
+  - {fileID: 2100000, guid: 9991b6265f7f87d43b7e3c676739f203, type: 2}
   SkyLightColors:
   - {r: 0.12941177, g: 0.26666668, b: 0.6039216, a: 0}
   - {r: 0.6273585, g: 0.7358139, b: 1, a: 0}
+  - {r: 1, g: 0.9527617, b: 0.7216981, a: 0}
   SkyLight: {fileID: 705507994}
   BackgroundMusic:
   - {fileID: 8300000, guid: 8bb5fb82f92d70749b34d923567d42b3, type: 3}
   - {fileID: 8300000, guid: f4736e668326ef345b6764987635e39d, type: 3}
+  - {fileID: 8300000, guid: 6d9cd20da7b8bae48b1c4832086d6153, type: 3}
   StraightTiles:
   - {fileID: 656729498457677531, guid: e3aaec8568aca5a40936a779b32f9d5b, type: 3}
+  - {fileID: 656729498457677531, guid: f01bbb10d06b29f41a1183d0805b54f5, type: 3}
   - {fileID: 656729498457677531, guid: f01bbb10d06b29f41a1183d0805b54f5, type: 3}
   CornerTiles:
   - {fileID: 4151709649053596937, guid: a4a20e5effa74ae489f5b3f0322b31ec, type: 3}
   - {fileID: 4151709649053596937, guid: ea89ff9fc8a52c14db105bed6d076a7a, type: 3}
+  - {fileID: 3503243326664584207, guid: 6db86c12d67f07647aaa709956c4f2f8, type: 3}
   TFormTiles:
   - {fileID: 8530042089805676874, guid: f2b92c38e51a5e343915e52a4bb98560, type: 3}
   - {fileID: 8530042089805676874, guid: e64a36ebb7fb8f34e82fcbe4e42620aa, type: 3}
+  - {fileID: 8530042089805676874, guid: e64a36ebb7fb8f34e82fcbe4e42620aa, type: 3}
   Borders:
   - {fileID: 2463989212178835889, guid: 3d0c21da977ca434ba7c19da54bd0a24, type: 3}
+  - {fileID: 2463989212178835889, guid: ef6d2b0269570e74d8e1e160459d2ff6, type: 3}
   - {fileID: 2463989212178835889, guid: ef6d2b0269570e74d8e1e160459d2ff6, type: 3}
   BackgroundPlane: {fileID: 0}
   BackgroundPlaneMaterials: []
