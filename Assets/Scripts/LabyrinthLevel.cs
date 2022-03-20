@@ -55,6 +55,7 @@ public class LabyrinthLevel : MonoBehaviour
     private AudioClip RockRotateSound;
 
     private AudioClip CollectSound;
+    private AudioClip WinSound;
 
     public Camera GameCamera;
 
@@ -132,7 +133,8 @@ public class LabyrinthLevel : MonoBehaviour
         RockRotateSound = Resources.Load<AudioClip>("Audio/Stone_rotate_effect");
         RockMoveSoundA = Resources.Load<AudioClip>("Audio/Rock_Move");
         RockMoveSoundB = Resources.Load<AudioClip>("Audio/Rock_Move_B");
-        CollectSound = Resources.Load<AudioClip>("Audio/collect");
+        CollectSound = Resources.Load<AudioClip>("Audio/collect_sound");
+        WinSound = Resources.Load<AudioClip>("Audio/win_sound");
 
         GenerateMap();
 
@@ -163,6 +165,7 @@ public class LabyrinthLevel : MonoBehaviour
                             UnpossessPlayer(_players[GameRules.GetCurrentPlayer()]);
                         }
 
+                        PlayWinSound();
                         
                         break;
 
@@ -173,6 +176,8 @@ public class LabyrinthLevel : MonoBehaviour
                         {
                             UnpossessPlayer(_players[GameRules.GetCurrentPlayer()]);
                         }
+
+                        PlayCollectSound();
 
                         break;
                 }
@@ -803,6 +808,11 @@ public class LabyrinthLevel : MonoBehaviour
     private void PlayCollectSound()
     {
         AudioSource.PlayClipAtPoint(CollectSound, GameCamera.transform.position, AudioListener.volume);
+    }
+
+    private void PlayWinSound()
+    {
+        AudioSource.PlayClipAtPoint(WinSound, GameCamera.transform.position, AudioListener.volume);
     }
 
     private void CheckAndRepositionPlayerIfOutOfBounds(GameObject player)
