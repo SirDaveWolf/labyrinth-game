@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 4350315540889506139}
   - component: {fileID: 3439361419617638649}
   m_Layer: 0
-  m_Name: TileCornerDesert
+  m_Name: TileCorner_Desert
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

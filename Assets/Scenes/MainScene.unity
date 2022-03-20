@@ -2734,7 +2734,7 @@ MonoBehaviour:
   StraightTiles:
   - {fileID: 656729498457677531, guid: e3aaec8568aca5a40936a779b32f9d5b, type: 3}
   - {fileID: 656729498457677531, guid: f01bbb10d06b29f41a1183d0805b54f5, type: 3}
-  - {fileID: 656729498457677531, guid: f01bbb10d06b29f41a1183d0805b54f5, type: 3}
+  - {fileID: 8178699126307323402, guid: e11e6b6f631f5664dbcc1f40d7d1a4f0, type: 3}
   CornerTiles:
   - {fileID: 4151709649053596937, guid: a4a20e5effa74ae489f5b3f0322b31ec, type: 3}
   - {fileID: 4151709649053596937, guid: ea89ff9fc8a52c14db105bed6d076a7a, type: 3}
@@ -2742,13 +2742,11 @@ MonoBehaviour:
   TFormTiles:
   - {fileID: 8530042089805676874, guid: f2b92c38e51a5e343915e52a4bb98560, type: 3}
   - {fileID: 8530042089805676874, guid: e64a36ebb7fb8f34e82fcbe4e42620aa, type: 3}
-  - {fileID: 8530042089805676874, guid: e64a36ebb7fb8f34e82fcbe4e42620aa, type: 3}
+  - {fileID: 6328477016943134660, guid: 43b455bf4471b26488277a7e749fc4e9, type: 3}
   Borders:
   - {fileID: 2463989212178835889, guid: 3d0c21da977ca434ba7c19da54bd0a24, type: 3}
   - {fileID: 2463989212178835889, guid: ef6d2b0269570e74d8e1e160459d2ff6, type: 3}
   - {fileID: 2463989212178835889, guid: ef6d2b0269570e74d8e1e160459d2ff6, type: 3}
-  BackgroundPlane: {fileID: 0}
-  BackgroundPlaneMaterials: []
   PlayerBase: {fileID: 2138486073675341645, guid: bf75ae7c67dcfbb479882dce41e28235, type: 3}
   PlayerStartBase: {fileID: 1920316731900199724, guid: 13ddcc73c0ccc844482813a4518fef81, type: 3}
   RedMaterial: {fileID: 2100000, guid: 167b835c48eed9641af5c5eebd29fe68, type: 2}
